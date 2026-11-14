@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+    strings-encoding: UTF-8
+    properties:
+      connectionTimeout: "20000"
+  encoding:
+    charset: UTF-8
+    force: true
+    enabled: true
+
+spring:
+  application:
+    name: sca-backend
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/sca_uepb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  flyway:
+    enabled: false # Habilitado sob demanda quando o MySQL schema estiver pronto
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+app:
+  jwt:
+    secret: "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970" # 256-bit key
+    expiration-ms: 86400000 # 24 horas em milissegundos

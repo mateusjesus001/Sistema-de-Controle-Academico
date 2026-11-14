@@ -1,0 +1,10 @@
+{
+  "description": "Ajuda estudantes a planejar a matrícula por período, escolher disciplinas e visualizar uma estimativa de tempo para concluir o curso.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
